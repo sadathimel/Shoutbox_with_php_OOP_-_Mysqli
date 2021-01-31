@@ -18,13 +18,12 @@
         <section class="content clr">
             <div class="box">
                 <ul>
-                    <li><span>5:30 pm</span> - <b>Himel</b> Hello,how are you.</li>
-                    <li><span>5:30 pm</span> - <b>Himel</b> Hello,how are you.</li>
-                    <li><span>5:30 pm</span> - <b>Himel</b> Hello,how are you.</li>
-                    <li><span>5:30 pm</span> - <b>Himel</b> Hello,how are you.</li>
-                    <li><span>5:30 pm</span> - <b>Himel</b> Hello,how are you.</li>
-                    <li><span>5:30 pm</span> - <b>Himel</b> Hello,how are you.</li>
-                    <li><span>5:30 pm</span> - <b>Himel</b> Hello,how are you.</li>
+                    <?php
+                        $getData = $shout->getAllData();
+                        if ($getData) {
+                            while ($data = $getData->fetch_assoc()) { ?>
+                                <li><span><?php echo $data['time']; ?></span> - <b><?php echo $data['name']; ?></b> <?php echo $data['body']?></li>
+                          <?php  } } ?>
                 </ul>
             </div>
             <div class="shoutform clr">
